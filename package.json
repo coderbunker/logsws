@@ -1,0 +1,17 @@
+{
+  "name": "logsws",
+  "version": "1.0.0",
+  "description": "Sample code to bridge PostgreSQL LISTEN/NOTIFY to Websocket",
+  "main": "listen.js",
+  "dependencies": {
+    "pg": "^6.1.0",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {},
+  "repository": "git@github.com:coderbunker/logsws.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricky Ng-Adam <rngadam@coderbunker.com>",
+  "license": "ISC"
+}
