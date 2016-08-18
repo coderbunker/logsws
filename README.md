@@ -1,6 +1,7 @@
 # logsws
 
 ## setup database
+
 Setup notification on changes to database:
 
 ```

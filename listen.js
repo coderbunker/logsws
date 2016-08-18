@@ -12,6 +12,16 @@ wss.on('connection', function connection(ws) {
       console.log(msg);
       ws.send(msg.payload);
     });
+
+    client.on('close', function() {
+      console.log('postgresql client exited, closing');
+      ws.close();
+    });
+
+    ws.on('close', function() {
+      console.log('websocket client exited, closing');
+      client.end();
+    });
     var query = client.query("LISTEN systemevents");
   });
 
