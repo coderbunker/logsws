@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="demo.css"></link>
+<script>
+var ws = new WebSocket('ws://localhost:8000/logs');
+ws.onmessage = function(evt) {
+  var parsed = JSON.parse(evt.data); 
+  console.log(parsed);
+  var l = document.getElementById("logs");
+  var e  = document.createElement("li");
+  e.classList.add('log');
+  e.classList.add('facility' + parsed.facility);
+  e.classList.add('priority' + parsed.priority);
+  e.innerHTML += '<div class="receivedat">' + parsed.receivedat + '</div>';
+  e.innerHTML += '<div class="fromhost">' + parsed.fromhost + '</div>';
+  e.innerHTML += '<div class="message">' + parsed.message + '</div>';
+  l.insertBefore(e, l.children[0]);
+};
+</script>
+</head>
+<body>
+<ul id="logs"></ul>
+</body>
+</html>
